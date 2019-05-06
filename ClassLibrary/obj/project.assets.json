@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\tauvetg\\Source\\Repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj",
       "projectName": "ClassLibrary",
-      "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj",
+      "projectPath": "C:\\Users\\tauvetg\\Source\\Repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj",
       "packagesPath": "C:\\Users\\tauvetg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\obj\\",
+      "outputPath": "C:\\Users\\tauvetg\\Source\\Repos\\CodeChallenges\\ClassLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -708,11 +708,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\CodeChallengeds\\CodeChallenges.csproj",
+      "projectUniqueName": "C:\\Users\\tauvetg\\Source\\Repos\\CodeChallenges\\CodeChallengeds\\CodeChallenges.csproj",
       "projectName": "CodeChallenges",
-      "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\CodeChallengeds\\CodeChallenges.csproj",
+      "projectPath": "C:\\Users\\tauvetg\\Source\\Repos\\CodeChallenges\\CodeChallengeds\\CodeChallenges.csproj",
       "packagesPath": "C:\\Users\\tauvetg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\CodeChallengeds\\obj\\",
+      "outputPath": "C:\\Users\\tauvetg\\Source\\Repos\\CodeChallenges\\CodeChallengeds\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -732,8 +732,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj": {
-              "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj"
+            "C:\\Users\\tauvetg\\Source\\Repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "C:\\Users\\tauvetg\\Source\\Repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj"
             }
           }
         }
