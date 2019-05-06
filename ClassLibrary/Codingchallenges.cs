@@ -93,5 +93,23 @@ namespace ClassLibrary
             
             return total;
         }
+
+        //https://www.coderbyte.com/editor/guest:Letter%20Capitalize:Csharp
+        public static string LetterCapitalize(string str)
+        {
+            var words = str.Split(new char[0]);
+            var sb = new StringBuilder("");
+
+            foreach (var word in words)
+            {
+                var firstLetter = char.ToUpper(word[0]).ToString();
+                var remaining = word.Substring(1);
+                var newWord = $"{firstLetter}{remaining} ";
+
+                sb.Append(newWord);
+            }
+
+            return sb.ToString().TrimEnd();
+        }
     }
 }
