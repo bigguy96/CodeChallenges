@@ -1,0 +1,118 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\CodeChallengeds\\CodeChallengeds.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj",
+        "projectName": "ClassLibrary",
+        "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj",
+        "packagesPath": "C:\\Users\\tauvetg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tauvetg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.tc.gc.ca/nuget": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\CodeChallengeds\\CodeChallengeds.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\CodeChallengeds\\CodeChallengeds.csproj",
+        "projectName": "CodeChallengeds",
+        "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\CodeChallengeds\\CodeChallengeds.csproj",
+        "packagesPath": "C:\\Users\\tauvetg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\CodeChallengeds\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tauvetg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.tc.gc.ca/nuget": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj": {
+                "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallengeds\\ClassLibrary\\ClassLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

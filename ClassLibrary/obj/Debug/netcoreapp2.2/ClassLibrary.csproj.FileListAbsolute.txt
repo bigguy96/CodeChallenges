@@ -1,0 +1,9 @@
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\bin\Debug\netcoreapp2.2\ClassLibrary.deps.json
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\bin\Debug\netcoreapp2.2\ClassLibrary.dll
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\bin\Debug\netcoreapp2.2\ClassLibrary.pdb
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\obj\Debug\netcoreapp2.2\ClassLibrary.csprojAssemblyReference.cache
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\obj\Debug\netcoreapp2.2\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\obj\Debug\netcoreapp2.2\ClassLibrary.AssemblyInfoInputs.cache
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\obj\Debug\netcoreapp2.2\ClassLibrary.AssemblyInfo.cs
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\obj\Debug\netcoreapp2.2\ClassLibrary.dll
+C:\Users\tauvetg\Source\repos\CodeChallengeds\ClassLibrary\obj\Debug\netcoreapp2.2\ClassLibrary.pdb

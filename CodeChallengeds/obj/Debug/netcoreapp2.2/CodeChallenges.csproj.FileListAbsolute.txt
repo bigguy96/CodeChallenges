@@ -1,0 +1,14 @@
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.deps.json
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.runtimeconfig.json
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.runtimeconfig.dev.json
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.dll
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.pdb
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\bin\Debug\netcoreapp2.2\ClassLibrary.dll
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\bin\Debug\netcoreapp2.2\ClassLibrary.pdb
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.csprojAssemblyReference.cache
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.csproj.CoreCompileInputs.cache
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.AssemblyInfoInputs.cache
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.AssemblyInfo.cs
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.csproj.CopyComplete
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.dll
+C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.pdb
