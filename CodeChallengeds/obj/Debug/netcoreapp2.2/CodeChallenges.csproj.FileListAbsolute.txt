@@ -12,3 +12,17 @@ C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcorea
 C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.csproj.CopyComplete
 C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.dll
 C:\Users\tauvetg\Source\repos\CodeChallengeds\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.pdb
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.deps.json
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.runtimeconfig.json
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.runtimeconfig.dev.json
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.dll
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\bin\Debug\netcoreapp2.2\CodeChallenges.pdb
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\bin\Debug\netcoreapp2.2\ClassLibrary.dll
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\bin\Debug\netcoreapp2.2\ClassLibrary.pdb
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.csprojAssemblyReference.cache
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.csproj.CoreCompileInputs.cache
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.AssemblyInfoInputs.cache
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.AssemblyInfo.cs
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.csproj.CopyComplete
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.dll
+C:\Users\gaeta\Source\Repos\CodeChallenges\CodeChallengeds\obj\Debug\netcoreapp2.2\CodeChallenges.pdb
