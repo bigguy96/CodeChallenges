@@ -181,23 +181,26 @@ namespace ClassLibrary
         //https://www.coderbyte.com/editor/guest:Scale%20Balancing:Csharp
         public static string ScaleBalancing(string[] strArr)
         {
-            var left = strArr[0].Replace("[", "").Replace("]", "");
-            var right = strArr[1].Replace("[", "").Replace("]", "");
-            var leftValues = left.Split(',');
-            var rightValues = right.Split(',');
-            var leftSideValues = leftValues.Select(x => Convert.ToInt32(x)).OrderByDescending(x => x).ToArray();
-            var rightSideValues = rightValues.Select(x => Convert.ToInt32(x)).OrderBy(x => x).ToArray();
-            var difference = leftSideValues[0] - leftSideValues[1];
+            var scale = strArr[0].Replace("[", "").Replace("]", "");
+            var weights = strArr[1].Replace("[", "").Replace("]", "");
+            var scaleValues = scale.Split(',');
+            var weightValues = weights.Split(',');
+            var scaleNumbers = scaleValues.Select(x => Convert.ToInt32(x)).OrderByDescending(x => x).ToArray();
+            var weightNumbers = weightValues.Select(x => Convert.ToInt32(x)).OrderBy(x => x).ToArray();
+            var difference = scaleNumbers[0] - scaleNumbers[1];
 
+            //are scale values the same?
             if (difference == 0) return "0";
 
-            var number = rightSideValues.FirstOrDefault(x => x == difference);
+            //does the difference already exist in the weights.
+            var number = weightNumbers.FirstOrDefault(x => x == difference);
             if (number > 0) return number.ToString();
 
-            for (var i = 0; i < rightSideValues.Length-1; i++)
+            //try to find a weight combination to even the scales.
+            for (var i = 0; i < weightNumbers.Length-1; i++)
             {
-                var current = rightSideValues[i];
-                var next = rightSideValues[i + 1];
+                var current = weightNumbers[i];
+                var next = weightNumbers[i + 1];
                 var sum = current + next;
 
                 if (sum == difference) return $"{current},{next}";
