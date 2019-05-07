@@ -15,6 +15,10 @@ namespace CodeChallengeds
             var letterCapitalize = CodingChallenges.LetterCapitalize("hello world how are you my friend");
             var simpleSymbols = CodingChallenges.SimpleSymbols("+d+=3=+s+");
             var simpleSymbols2 = CodingChallenges.SimpleSymbols("f++d+");
+            var checkNums = CodingChallenges.CheckNums(10, 10);
+            var checkNums2 = CodingChallenges.CheckNums(10, 100);
+            var checkNums3 = CodingChallenges.CheckNums(100, 10);
+
 
             Console.WriteLine(word);
             Console.WriteLine(factorial);
@@ -24,6 +28,9 @@ namespace CodeChallengeds
             Console.WriteLine(letterCapitalize);
             Console.WriteLine(simpleSymbols);
             Console.WriteLine(simpleSymbols2);
+            Console.WriteLine(checkNums);
+            Console.WriteLine(checkNums2);
+            Console.WriteLine(checkNums3);
 
             Console.ReadKey();
         }

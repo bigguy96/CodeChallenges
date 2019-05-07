@@ -116,10 +116,18 @@ namespace ClassLibrary
         public static string SimpleSymbols(string str)
         {
             //var regex = new Regex(@"(?![a-z])\+?[a-zA-Z]\+?(?![a-z])");
+            //TODO: Revisit regex.
             var regex = new Regex(@"(^\+{1})[a-zA-Z](\+?|$)");
             var match = regex.Match(str);
 
             return match.Success ? "true" : "false";
+        }
+
+        public static string CheckNums(int num1, int num2)
+        {
+            if (num1 == num2) return "-1";
+
+            return num2 > num1 ? "true" : "false";
         }
     }
 }
