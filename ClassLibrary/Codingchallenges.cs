@@ -136,5 +136,14 @@ namespace ClassLibrary
 
             return $"{ts.Hours}:{ts.Minutes}";
         }
+
+        //https://www.coderbyte.com/editor/guest:Alphabet%20Soup:Csharp
+        public static string AlphabetSoup(string str)
+        {
+            var chars = str.ToCharArray();
+            var ordered = chars.OrderBy(c => (int)c);
+
+            return new string(ordered.ToArray());
+        }
     }
 }

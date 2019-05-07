@@ -19,6 +19,7 @@ namespace CodeChallengeds
             var checkNums2 = CodingChallenges.CheckNums(10, 100);
             var checkNums3 = CodingChallenges.CheckNums(100, 10);
             var timeConvert = CodingChallenges.TimeConvert(126);
+            var alphabetSoup = CodingChallenges.AlphabetSoup("dfghdsetqwerw");
 
 
             Console.WriteLine(word);
@@ -33,6 +34,7 @@ namespace CodeChallengeds
             Console.WriteLine(checkNums2);
             Console.WriteLine(checkNums3);
             Console.WriteLine(timeConvert);
+            Console.WriteLine(alphabetSoup);
 
             Console.ReadKey();
         }
