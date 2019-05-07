@@ -111,5 +111,15 @@ namespace ClassLibrary
 
             return sb.ToString().TrimEnd();
         }
+
+        //https://www.coderbyte.com/editor/guest:Simple%20Symbols:Csharp
+        public static string SimpleSymbols(string str)
+        {
+            //var regex = new Regex(@"(?![a-z])\+?[a-zA-Z]\+?(?![a-z])");
+            var regex = new Regex(@"(^\+{1})[a-zA-Z](\+?|$)");
+            var match = regex.Match(str);
+
+            return match.Success ? "true" : "false";
+        }
     }
 }

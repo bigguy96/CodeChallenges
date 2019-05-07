@@ -13,6 +13,8 @@ namespace CodeChallengeds
             var letterChange = CodingChallenges.LetterChanges("fun times!");
             var simpleAdding = CodingChallenges.SimpleAdding(140);
             var letterCapitalize = CodingChallenges.LetterCapitalize("hello world how are you my friend");
+            var simpleSymbols = CodingChallenges.SimpleSymbols("+d+=3=+s+");
+            var simpleSymbols2 = CodingChallenges.SimpleSymbols("f++d+");
 
             Console.WriteLine(word);
             Console.WriteLine(factorial);
@@ -20,6 +22,8 @@ namespace CodeChallengeds
             Console.WriteLine(letterChange);
             Console.WriteLine(simpleAdding);
             Console.WriteLine(letterCapitalize);
+            Console.WriteLine(simpleSymbols);
+            Console.WriteLine(simpleSymbols2);
 
             Console.ReadKey();
         }
