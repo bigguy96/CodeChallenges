@@ -84,15 +84,66 @@ namespace ClassLibrary
 //        https://www.coderbyte.com/editor/guest:Simple%20Adding:Csharp
         public static int SimpleAdding(int num)
         {
+            var total = 0;
 
-            // code goes here  
-            /* Note: In C# the return type of a function and the 
-               parameter types being passed are defined, so this return 
-               call must match the return type of the function.
-               You are free to modify the return type. */
+            for (int i = 1; i <= num; i++)
+            {
+                total += i;
+            }
+            
+            return total;
+        }
 
-            return num;
+        //https://www.coderbyte.com/editor/guest:Letter%20Capitalize:Csharp
+        public static string LetterCapitalize(string str)
+        {
+            var words = str.Split(new char[0]);
+            var sb = new StringBuilder("");
 
+            foreach (var word in words)
+            {
+                var firstLetter = char.ToUpper(word[0]).ToString();
+                var remaining = word.Substring(1);
+                var newWord = $"{firstLetter}{remaining} ";
+
+                sb.Append(newWord);
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        //https://www.coderbyte.com/editor/guest:Simple%20Symbols:Csharp
+        public static string SimpleSymbols(string str)
+        {
+            //var regex = new Regex(@"(?![a-z])\+?[a-zA-Z]\+?(?![a-z])");
+            //TODO: Revisit regex.
+            var regex = new Regex(@"(^\+{1})[a-zA-Z](\+?|$)");
+            var match = regex.Match(str);
+
+            return match.Success ? "true" : "false";
+        }
+
+        public static string CheckNums(int num1, int num2)
+        {
+            if (num1 == num2) return "-1";
+
+            return num2 > num1 ? "true" : "false";
+        }
+
+        public static string TimeConvert(int num)
+        {
+            var ts = TimeSpan.FromMinutes(num);           
+
+            return $"{ts.Hours}:{ts.Minutes}";
+        }
+
+        //https://www.coderbyte.com/editor/guest:Alphabet%20Soup:Csharp
+        public static string AlphabetSoup(string str)
+        {
+            var chars = str.ToCharArray();
+            var ordered = chars.OrderBy(c => (int)c);
+
+            return new string(ordered.ToArray());
         }
     }
 }
