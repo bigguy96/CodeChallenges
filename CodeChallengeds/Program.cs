@@ -20,6 +20,7 @@ namespace CodeChallengeds
             var checkNums3 = CodingChallenges.CheckNums(100, 10);
             var timeConvert = CodingChallenges.TimeConvert(126);
             var alphabetSoup = CodingChallenges.AlphabetSoup("dfghdsetqwerw");
+            var kaprekar = CodingChallenges.KaprekarsConstant(2111);
 
 
             Console.WriteLine(word);
