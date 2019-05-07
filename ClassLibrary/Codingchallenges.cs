@@ -149,20 +149,26 @@ namespace ClassLibrary
         //https://www.coderbyte.com/editor/guest:Kaprekars%20Constant:Csharp
         public static int KaprekarsConstant(int num)
         {
+            int ReverseFunc(int number, bool isDescending) => isDescending ?
+                Convert.ToInt32(new string(number.ToString("0000").ToCharArray().OrderByDescending(x => x).ToArray())) :
+                Convert.ToInt32(new string(number.ToString("0000").ToCharArray().OrderBy(x => x).ToArray()));
+
             const int kaprekar = 6174;
             var difference = 0;
             var times = 0;
-
-            int ReverseFunc(int number, bool isDescending) => isDescending ? 
-                Convert.ToInt32(new string(number.ToString("0000").ToCharArray().OrderByDescending(x => x).ToArray())) : 
-                Convert.ToInt32(new string(number.ToString("0000").ToCharArray().OrderBy(x => x).ToArray()));
-
             var ascending = ReverseFunc(num, false);
             var descending = ReverseFunc(num, true);
 
             while (difference != kaprekar)
             {
                 difference = descending - ascending;
+
+                if (difference == kaprekar)
+                {
+                    times++;
+                    break;
+                }
+
                 ascending = ReverseFunc(difference, false);
                 descending = ReverseFunc(difference, true);
 
