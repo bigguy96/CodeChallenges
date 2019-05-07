@@ -155,7 +155,7 @@ namespace ClassLibrary
 
             const int kaprekar = 6174;
             var difference = 0;
-            var times = 0;
+            var count = 0;
             var ascending = ReverseFunc(num, false);
             var descending = ReverseFunc(num, true);
 
@@ -165,17 +165,17 @@ namespace ClassLibrary
 
                 if (difference == kaprekar)
                 {
-                    times++;
+                    count++;
                     break;
                 }
 
                 ascending = ReverseFunc(difference, false);
                 descending = ReverseFunc(difference, true);
 
-                times++;
+                count++;
             }
 
-            return times;
+            return count;
         }
     }
 }
