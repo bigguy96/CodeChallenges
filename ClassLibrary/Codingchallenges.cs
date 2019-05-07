@@ -86,7 +86,7 @@ namespace ClassLibrary
         {
             var total = 0;
 
-            for (int i = 1; i <= num; i++)
+            for (var i = 1; i <= num; i++)
             {
                 total += i;
             }
@@ -150,8 +150,8 @@ namespace ClassLibrary
         public static int KaprekarsConstant(int num)
         {
             int ReverseFunc(int number, bool isDescending) => isDescending ?
-                Convert.ToInt32(new string(number.ToString("0000").ToCharArray().OrderByDescending(x => x).ToArray())) :
-                Convert.ToInt32(new string(number.ToString("0000").ToCharArray().OrderBy(x => x).ToArray()));
+                Convert.ToInt32(new string(number.ToString("0000").OrderByDescending(x => x).ToArray())) :
+                Convert.ToInt32(new string(number.ToString("0000").OrderBy(x => x).ToArray()));
 
             const int kaprekar = 6174;
             var difference = 0;
@@ -176,6 +176,34 @@ namespace ClassLibrary
             }
 
             return count;
+        }
+
+        //https://www.coderbyte.com/editor/guest:Scale%20Balancing:Csharp
+        public static string ScaleBalancing(string[] strArr)
+        {
+            var left = strArr[0].Replace("[", "").Replace("]", "");
+            var right = strArr[1].Replace("[", "").Replace("]", "");
+            var leftValues = left.Split(',');
+            var rightValues = right.Split(',');
+            var leftSideValues = leftValues.Select(x => Convert.ToInt32(x)).OrderByDescending(x => x).ToArray();
+            var rightSideValues = rightValues.Select(x => Convert.ToInt32(x)).OrderBy(x => x).ToArray();
+            var difference = leftSideValues[0] - leftSideValues[1];
+
+            if (difference == 0) return "0";
+
+            var number = rightSideValues.FirstOrDefault(x => x == difference);
+            if (number > 0) return number.ToString();
+
+            for (var i = 0; i < rightSideValues.Length-1; i++)
+            {
+                var current = rightSideValues[i];
+                var next = rightSideValues[i + 1];
+                var sum = current + next;
+
+                if (sum == difference) return $"{current},{next}";
+            }
+            
+            return "not possible";
         }
     }
 }
