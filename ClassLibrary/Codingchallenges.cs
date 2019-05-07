@@ -129,5 +129,12 @@ namespace ClassLibrary
 
             return num2 > num1 ? "true" : "false";
         }
+
+        public static string TimeConvert(int num)
+        {
+            var ts = TimeSpan.FromMinutes(num);           
+
+            return $"{ts.Hours}:{ts.Minutes}";
+        }
     }
 }
