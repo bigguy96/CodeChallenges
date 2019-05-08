@@ -179,6 +179,7 @@ namespace ClassLibrary
         }
 
         //https://www.coderbyte.com/editor/guest:Scale%20Balancing:Csharp
+        // ["[6, 2]", "[1, 10, 6, 5]"] -- fail.
         public static string ScaleBalancing(string[] strArr)
         {
             var scale = strArr[0].Replace("[", "").Replace("]", "");
