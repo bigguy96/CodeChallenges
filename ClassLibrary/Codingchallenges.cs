@@ -209,5 +209,26 @@ namespace ClassLibrary
             
             return "not possible";
         }
+
+        public static string QuestionsMarks(string str)
+        {
+
+            var values = str.ToCharArray();
+
+            var regex = new Regex(@"[^a-zA-Z]", RegexOptions.Compiled);
+            var input = regex.Matches(str);
+            var numbers = new List<int>();
+
+            foreach (var item in input)
+            {
+                if (item.Equals("?"))
+                {
+
+                }  
+            }
+
+            return str;
+
+        }
     }
 }
