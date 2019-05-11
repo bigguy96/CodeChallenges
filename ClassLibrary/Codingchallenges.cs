@@ -236,7 +236,7 @@ namespace ClassLibrary
             var next = 0;
             var qCount = 0;
             var sum = 0;
-            //var numbers = new List<int>();
+
             foreach (var c in chars)
             {
                 if (c.Equals('?'))
@@ -267,66 +267,7 @@ namespace ClassLibrary
 
             }
 
-            //var s = new string(chars.ToArray());
-            //var digitCount = s.ToCharArray().Count(x => char.IsDigit(x));
-            //var questionCount = s.ToCharArray().Count(x => x.Equals('?'));
-            //var isValid = false;
-
-            //var regex = new Regex(@"(\d\?+\d)", RegexOptions.Compiled);
-            //var matches = regex.Matches(s);
-
-            //foreach (Match match in matches)
-            //{
-            //    var count = match.Value.ToCharArray().Count(x => x.Equals('?'));
-
-            //    if (count != 3)
-            //    {
-            //        isValid = false;
-            //        break;
-            //        //return "false";
-            //    }
-
-            //    var value = match.Value.Replace("???", ",");
-            //    var split = value.Split(',');
-            //    var sum = 0;
-
-            //    foreach (var num in split)
-            //    {
-            //        sum += int.Parse(num);
-
-            //        if (sum == 10)
-            //        {
-            //            //return "true";
-            //            isValid = true;
-            //        }
-            //    }
-            //}
-
             return isValid ? "true" : "false";
-            //all 10 count must have 3 ??? in between.
-
-
-            //int current = int.MinValue;
-            //int qCount = 0;
-            //bool has10 = false; ;
-            //for (int i = 0; i < str.Length; i++)
-            //{
-            //    char c = str[i];
-            //    if (c == '?') qCount++;
-            //    else if (char.IsNumber(c))
-            //    {
-            //        int next = int.Parse("" + str[i]);
-            //        if (next + current == 10)
-            //        {
-            //            if (qCount != 3) return "false";
-            //            has10 = true;
-            //        }
-            //        current = next;
-            //        qCount = 0;
-            //    }
-            //}
-
-            //return has10 ? "true" : "false";
         }
     }
 }
