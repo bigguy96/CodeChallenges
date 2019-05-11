@@ -198,7 +198,7 @@ namespace ClassLibrary
             if (number > 0) return number.ToString();
 
             //try to find a weight combination to even the scales.
-            for (var i = 0; i < weightNumbers.Length-1; i++)
+            for (var i = 0; i < weightNumbers.Length - 1; i++)
             {
                 var current = weightNumbers[i];
                 var next = weightNumbers[i + 1];
@@ -206,29 +206,48 @@ namespace ClassLibrary
 
                 if (sum == difference) return $"{current},{next}";
             }
-            
+
             return "not possible";
         }
 
         public static string QuestionsMarks(string str)
         {
+            var charArray = str.ToCharArray();
+            var chars = new List<char>();
 
-            var values = str.ToCharArray();
-
-            var regex = new Regex(@"[^a-zA-Z]", RegexOptions.Compiled);
-            var input = regex.Matches(str);
-            var numbers = new List<int>();
-
-            foreach (var item in input)
+            foreach (var item in charArray)
             {
-                if (item.Equals("?"))
+                if (item.Equals('?') || char.IsDigit(item))
                 {
-
-                }  
+                    chars.Add(item);
+                }
             }
 
-            return str;
+            var s = new string(chars.ToArray());
+            var regex = new Regex(@"(\d\?{3}\d)", RegexOptions.Compiled);
+            var matches = regex.Matches(s);
+            var matchesArray = matches.ToArray();
+            var sum = 0;
 
+            foreach (var item in matchesArray)
+            {
+                var value = item.Value.Replace("???",",");
+                var split = value.Split(',');
+
+                foreach (var num in split)
+                {
+                    sum += int.Parse(num);
+
+                    if (sum == 10)
+                    {
+                        return "true";
+                    }
+                }
+
+                sum = 0;
+            }
+            
+            return "false";
         }
     }
 }
