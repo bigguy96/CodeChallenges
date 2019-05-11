@@ -224,10 +224,17 @@ namespace ClassLibrary
             }
 
             var s = new string(chars.ToArray());
-            var regex = new Regex(@"(\d\?*\d)", RegexOptions.Compiled);
-            var matches = regex.Matches(s);
-            
+            var digitCount = s.ToCharArray().Count(x => char.IsDigit(x));
+            var questionCount = s.ToCharArray().Count(x => x.Equals('?'));
             var isValid = false;
+
+            if (digitCount < 2 || questionCount == 0)
+            {
+                return "false";
+            }
+
+            var regex = new Regex(@"(\d\?+\d)", RegexOptions.Compiled);
+            var matches = regex.Matches(s);
 
             foreach (Match match in matches)
             {
@@ -237,6 +244,7 @@ namespace ClassLibrary
                 {
                     isValid = false;
                     break;
+                    //return "false";
                 }
 
                 var value = match.Value.Replace("???", ",");
@@ -249,6 +257,7 @@ namespace ClassLibrary
 
                     if (sum == 10)
                     {
+                        //return "true";
                         isValid = true;
                     }
                 }
