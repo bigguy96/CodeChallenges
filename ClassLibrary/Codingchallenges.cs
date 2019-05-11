@@ -212,26 +212,65 @@ namespace ClassLibrary
 
         public static string QuestionsMarks(string str)
         {
-            //var charArray = str.ToCharArray();
-            //var chars = new List<char>();
+            var charArray = str.ToCharArray();
+            var chars = new List<char>();
 
-            //foreach (var item in charArray)
-            //{
-            //    if (item.Equals('?') || char.IsDigit(item))
-            //    {
-            //        chars.Add(item);
-            //    }
-            //}
+            foreach (var item in charArray)
+            {
+                if (item.Equals('?') || char.IsDigit(item))
+                {
+                    chars.Add(item);
+                }
+            }
+
+            var digitCount = chars.Count(x => char.IsNumber(x));
+            var questionCount = chars.Count(x => x.Equals('?'));
+
+            if (digitCount < 2 || questionCount == 0)
+            {
+                return "false";
+            }
+
+            var isValid = false;
+            var current = 0;
+            var next = 0;
+            var qCount = 0;
+            var sum = 0;
+            //var numbers = new List<int>();
+            foreach (var c in chars)
+            {
+                if (c.Equals('?'))
+                {
+                    qCount++;
+                    continue;
+                }
+
+                if (char.IsNumber(c))
+                {
+                    current = int.Parse(c.ToString());
+                    sum = current + next;
+
+                    if (sum == 10 && qCount < 3)
+                    {
+                        return "false";
+                    }
+                    else if (sum == 10 && qCount == 3)
+                    {
+                        isValid = true;
+                        qCount = 0;
+                        sum = 0;
+
+                    }
+                    next = current;
+                    qCount = 0;
+                }
+
+            }
 
             //var s = new string(chars.ToArray());
             //var digitCount = s.ToCharArray().Count(x => char.IsDigit(x));
             //var questionCount = s.ToCharArray().Count(x => x.Equals('?'));
             //var isValid = false;
-
-            //if (digitCount < 2 || questionCount == 0)
-            //{
-            //    return "false";
-            //}
 
             //var regex = new Regex(@"(\d\?+\d)", RegexOptions.Compiled);
             //var matches = regex.Matches(s);
@@ -263,31 +302,31 @@ namespace ClassLibrary
             //    }
             //}
 
-            //return isValid ? "true" : "false";
+            return isValid ? "true" : "false";
             //all 10 count must have 3 ??? in between.
 
 
-            int current = int.MinValue;
-            int qCount = 0;
-            bool has10 = false; ;
-            for (int i = 0; i < str.Length; i++)
-            {
-                char c = str[i];
-                if (c == '?') qCount++;
-                else if (char.IsNumber(c))
-                {
-                    int next = int.Parse("" + str[i]);
-                    if (next + current == 10)
-                    {
-                        if (qCount != 3) return "false";
-                        has10 = true;
-                    }
-                    current = next;
-                    qCount = 0;
-                }
-            }
+            //int current = int.MinValue;
+            //int qCount = 0;
+            //bool has10 = false; ;
+            //for (int i = 0; i < str.Length; i++)
+            //{
+            //    char c = str[i];
+            //    if (c == '?') qCount++;
+            //    else if (char.IsNumber(c))
+            //    {
+            //        int next = int.Parse("" + str[i]);
+            //        if (next + current == 10)
+            //        {
+            //            if (qCount != 3) return "false";
+            //            has10 = true;
+            //        }
+            //        current = next;
+            //        qCount = 0;
+            //    }
+            //}
 
-            return has10 ? "true" : "false";
+            //return has10 ? "true" : "false";
         }
     }
 }
