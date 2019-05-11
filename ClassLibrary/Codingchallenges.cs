@@ -224,15 +224,24 @@ namespace ClassLibrary
             }
 
             var s = new string(chars.ToArray());
-            var regex = new Regex(@"(\d\?{3}\d)", RegexOptions.Compiled);
+            var regex = new Regex(@"(\d\?*\d)", RegexOptions.Compiled);
             var matches = regex.Matches(s);
-            var matchesArray = matches.ToArray();
-            var sum = 0;
+            
+            var isValid = false;
 
-            foreach (var item in matchesArray)
+            foreach (Match match in matches)
             {
-                var value = item.Value.Replace("???",",");
+                var count = match.Value.ToCharArray().Count(x => x.Equals('?'));
+
+                if (count != 3)
+                {
+                    isValid = false;
+                    break;
+                }
+
+                var value = match.Value.Replace("???", ",");
                 var split = value.Split(',');
+                var sum = 0;
 
                 foreach (var num in split)
                 {
@@ -240,14 +249,12 @@ namespace ClassLibrary
 
                     if (sum == 10)
                     {
-                        return "true";
+                        isValid = true;
                     }
                 }
-
-                sum = 0;
             }
-            
-            return "false";
+
+            return isValid ? "true" : "false";
         }
     }
 }
