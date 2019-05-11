@@ -212,58 +212,82 @@ namespace ClassLibrary
 
         public static string QuestionsMarks(string str)
         {
-            var charArray = str.ToCharArray();
-            var chars = new List<char>();
+            //var charArray = str.ToCharArray();
+            //var chars = new List<char>();
 
-            foreach (var item in charArray)
+            //foreach (var item in charArray)
+            //{
+            //    if (item.Equals('?') || char.IsDigit(item))
+            //    {
+            //        chars.Add(item);
+            //    }
+            //}
+
+            //var s = new string(chars.ToArray());
+            //var digitCount = s.ToCharArray().Count(x => char.IsDigit(x));
+            //var questionCount = s.ToCharArray().Count(x => x.Equals('?'));
+            //var isValid = false;
+
+            //if (digitCount < 2 || questionCount == 0)
+            //{
+            //    return "false";
+            //}
+
+            //var regex = new Regex(@"(\d\?+\d)", RegexOptions.Compiled);
+            //var matches = regex.Matches(s);
+
+            //foreach (Match match in matches)
+            //{
+            //    var count = match.Value.ToCharArray().Count(x => x.Equals('?'));
+
+            //    if (count != 3)
+            //    {
+            //        isValid = false;
+            //        break;
+            //        //return "false";
+            //    }
+
+            //    var value = match.Value.Replace("???", ",");
+            //    var split = value.Split(',');
+            //    var sum = 0;
+
+            //    foreach (var num in split)
+            //    {
+            //        sum += int.Parse(num);
+
+            //        if (sum == 10)
+            //        {
+            //            //return "true";
+            //            isValid = true;
+            //        }
+            //    }
+            //}
+
+            //return isValid ? "true" : "false";
+            //all 10 count must have 3 ??? in between.
+
+
+            int current = int.MinValue;
+            int qCount = 0;
+            bool has10 = false; ;
+            for (int i = 0; i < str.Length; i++)
             {
-                if (item.Equals('?') || char.IsDigit(item))
+                char c = str[i];
+                if (c == '?') qCount++;
+                else if (char.IsNumber(c))
                 {
-                    chars.Add(item);
-                }
-            }
-
-            var s = new string(chars.ToArray());
-            var digitCount = s.ToCharArray().Count(x => char.IsDigit(x));
-            var questionCount = s.ToCharArray().Count(x => x.Equals('?'));
-            var isValid = false;
-
-            if (digitCount < 2 || questionCount == 0)
-            {
-                return "false";
-            }
-
-            var regex = new Regex(@"(\d\?+\d)", RegexOptions.Compiled);
-            var matches = regex.Matches(s);
-
-            foreach (Match match in matches)
-            {
-                var count = match.Value.ToCharArray().Count(x => x.Equals('?'));
-
-                if (count != 3)
-                {
-                    isValid = false;
-                    break;
-                    //return "false";
-                }
-
-                var value = match.Value.Replace("???", ",");
-                var split = value.Split(',');
-                var sum = 0;
-
-                foreach (var num in split)
-                {
-                    sum += int.Parse(num);
-
-                    if (sum == 10)
+                    int next = int.Parse("" + str[i]);
+                    if (next + current == 10)
                     {
-                        //return "true";
-                        isValid = true;
+                        if (qCount != 3) return "false";
+                        has10 = true;
                     }
+                    current = next;
+                    qCount = 0;
                 }
             }
 
-            return isValid ? "true" : "false";
+            return has10 ? "true" : "false";
         }
     }
 }

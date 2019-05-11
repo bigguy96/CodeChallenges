@@ -22,7 +22,7 @@ namespace CodeChallengeds
             var alphabetSoup = CodingChallenges.AlphabetSoup("dfghdsetqwerw");
             var kaprekar = CodingChallenges.KaprekarsConstant(9831);
             var scaleBalancing = CodingChallenges.ScaleBalancing(new[] { "[13, 4]", "[1, 2, 3, 6, 14]" });
-            var questionMark = CodingChallenges.QuestionsMarks("acc?7??sss?3rr1??????5");
+            var questionMark = CodingChallenges.QuestionsMarks("9???1???9??1???9");
             //9???1???9??1???9
             //5??aaaaaaaaaaaaaaaaaaa?5?5
             //acc?7??sss?3rr1??????5
