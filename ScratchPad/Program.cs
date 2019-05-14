@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -13,7 +14,7 @@ namespace ScratchPad
 
 
 
-            Console.WriteLine(Order("is2 Thi1s T4est 3a"));
+            Console.WriteLine(Tickets(new int[] { 25, 100 }));
             Console.ReadKey();
         }
 
@@ -121,11 +122,10 @@ namespace ScratchPad
             {
                 foreach (var letter in word)
                 {
-                    if (char.IsNumber(letter))
-                    {
-                        dic.Add(letter, word);
-                        break;
-                    }
+                    if (!char.IsNumber(letter)) continue;
+
+                    dic.Add(letter, word);
+                    break;
                 }
             }
 
@@ -134,21 +134,46 @@ namespace ScratchPad
             return string.Join(" ", ordered);
         }
 
-        public int GetSum(int a, int b)
+        public static int GetSum(int a, int b)
         {
-            if (a == b)
+            if (a == b) return a;
+
+            var numbers = new List<int>();
+            var min = Math.Min(a, b);
+            var max = Math.Max(a, b);
+
+            while (min <= max)
             {
-                return a;
+                numbers.Add(min);
+                min++;
             }
 
-            var min = a < b ? a : b;
-            var max = b < a ? b : a;
+            return numbers.Sum();
+        }
 
-            var range = Enumerable.Range(min, max);
-            
-            
-            //Good L:uck!
-            return 0;
+        public static string Tickets(int[] peopleInLine)
+        {
+            var totalCash = 0;
+
+            foreach (var cash in peopleInLine)
+            {
+                switch (cash)
+                {
+                    case 25:
+                        totalCash += 25;
+                        break;
+
+                    case 50:
+                        totalCash -= 25;
+                        break;
+
+                    case 100:
+                        totalCash -= 75;
+                        break;
+                }
+            }
+
+            return  totalCash >= 0 ? "YES" : "NO";
         }
     }
 }
