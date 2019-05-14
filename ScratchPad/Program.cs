@@ -162,13 +162,16 @@ namespace ScratchPad
                     case 25:
                         totalCash += 25;
                         break;
-
                     case 50:
-                        totalCash -= 25;
-                        break;
-
                     case 100:
-                        totalCash -= 75;
+                        totalCash = cash - 25;
+
+                        if (cash < 0)
+                        {
+                            return "NO";
+                        }
+
+                        totalCash += 25;
                         break;
                 }
             }
@@ -177,3 +180,25 @@ namespace ScratchPad
         }
     }
 }
+
+
+//public static string Tickets(int[] peopleInLine)
+//{
+//var bank = 0;
+//    foreach (int x in peopleInLine)
+//{
+//    if (x == 25)
+//    {
+//        bank += 25;
+//        continue;
+//    }
+//    else
+//    {
+//        bank -= x - 25;
+//        if (bank <= 0)
+//            return "NO";
+//        bank += 25;
+//    }
+//}
+//return "YES";
+//}
