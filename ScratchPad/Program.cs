@@ -11,10 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-
-
-
-            Console.WriteLine(Tickets(new int[] { 25, 100 }));
+            Console.WriteLine(Persistence(999));
             Console.ReadKey();
         }
 
@@ -151,7 +148,7 @@ namespace ScratchPad
             return numbers.Sum();
         }
 
-       public static string Tickets(int[] peopleInLine)
+        public static string Tickets(int[] peopleInLine)
         {
             (int twentyFives, int fifties) register = (0, 0);
 
@@ -167,7 +164,7 @@ namespace ScratchPad
                     case 50:
                         register.twentyFives--;
                         register.fifties++;
-                        
+
                         break;
 
                     case 100 when register.fifties == 0:
@@ -190,27 +187,20 @@ namespace ScratchPad
 
             return "YES";
         }
+
+        public static int Persistence(long n)
+        {
+            var count = 0;
+            var number = n.ToString();
+
+            while (number.Length > 1)
+            {
+                count++;
+                number = number.Select(x => int.Parse(x.ToString())).Aggregate((a, b) => a * b).ToString();
+            }
+            return count;
+        }
     }
 }
 
 
-//public static string Tickets(int[] peopleInLine)
-//{
-//var bank = 0;
-//    foreach (int x in peopleInLine)
-//{
-//    if (x == 25)
-//    {
-//        bank += 25;
-//        continue;
-//    }
-//    else
-//    {
-//        bank -= x - 25;
-//        if (bank <= 0)
-//            return "NO";
-//        bank += 25;
-//    }
-//}
-//return "YES";
-//}
