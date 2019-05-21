@@ -154,29 +154,45 @@ namespace ScratchPad
         public static string Tickets(int[] peopleInLine)
         {
             var totalCash = 0;
+            var twentyFive = 0;
+            var fifty = 0;
 
             foreach (var cash in peopleInLine)
             {
                 switch (cash)
                 {
                     case 25:
-                        totalCash += 25;
+                        twentyFive++;
                         break;
+
                     case 50:
-                    case 100:
-                        totalCash = cash - 25;
-
-                        if (cash < 0)
-                        {
-                            return "NO";
-                        }
-
-                        totalCash += 25;
+                        twentyFive--;
+                        fifty++;
                         break;
+
+                    case 100 when fifty == 0:
+                        twentyFive -= 3;
+                        break;
+
+                    case 100:
+                        twentyFive--;
+                        fifty--;
+                        break;
+                }
+
+
+
+                if (twentyFive < 0 || fifty < 0)
+                {
+                    return "NO";
                 }
             }
 
-            return  totalCash >= 0 ? "YES" : "NO";
+
+
+            return "YES";
+
+            //return totalCash >= 0 ? "YES" : "NO";
         }
     }
 }
