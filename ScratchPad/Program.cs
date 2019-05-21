@@ -151,48 +151,44 @@ namespace ScratchPad
             return numbers.Sum();
         }
 
-        public static string Tickets(int[] peopleInLine)
+       public static string Tickets(int[] peopleInLine)
         {
-            var totalCash = 0;
-            var twentyFive = 0;
-            var fifty = 0;
+            (int twentyFives, int fifties) register = (0, 0);
 
             foreach (var cash in peopleInLine)
             {
                 switch (cash)
                 {
                     case 25:
-                        twentyFive++;
+                        register.twentyFives++;
+
                         break;
 
                     case 50:
-                        twentyFive--;
-                        fifty++;
+                        register.twentyFives--;
+                        register.fifties++;
+                        
                         break;
 
-                    case 100 when fifty == 0:
-                        twentyFive -= 3;
+                    case 100 when register.fifties == 0:
+                        register.twentyFives -= 3;
+
                         break;
 
                     case 100:
-                        twentyFive--;
-                        fifty--;
+                        register.twentyFives--;
+                        register.fifties--;
+
                         break;
                 }
 
-
-
-                if (twentyFive < 0 || fifty < 0)
+                if (register.twentyFives < 0 || register.fifties < 0)
                 {
                     return "NO";
                 }
             }
 
-
-
             return "YES";
-
-            //return totalCash >= 0 ? "YES" : "NO";
         }
     }
 }
