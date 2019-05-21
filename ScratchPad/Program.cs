@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Persistence(999));
+            Console.WriteLine(ToWeirdCase("    "));
             Console.ReadKey();
         }
 
@@ -199,6 +199,29 @@ namespace ScratchPad
                 number = number.Select(x => int.Parse(x.ToString())).Aggregate((a, b) => a * b).ToString();
             }
             return count;
+        }
+
+        public static string ToWeirdCase(string s)
+        {
+            if (string.IsNullOrWhiteSpace(s)) return s;
+
+            var words = s.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+            var sb = new StringBuilder("");
+
+            foreach (var word in words)
+            {
+                var characters = word.ToCharArray();
+
+                for (var i = 0; i < characters.Length; i++)
+                {
+                    sb.Append(i % 2 == 0 ? char.ToUpper(word[i]) : char.ToLower(word[i]));
+                    
+                }
+
+                sb.Append(" ");
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
