@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -11,7 +12,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(ToWeirdCase("    "));
+            Console.WriteLine(SortArray(new[] { 5, 3, 2, 8, 1, 4 }));
             Console.ReadKey();
         }
 
@@ -215,7 +216,7 @@ namespace ScratchPad
                 for (var i = 0; i < characters.Length; i++)
                 {
                     sb.Append(i % 2 == 0 ? char.ToUpper(word[i]) : char.ToLower(word[i]));
-                    
+
                 }
 
                 sb.Append(" ");
@@ -223,7 +224,30 @@ namespace ScratchPad
 
             return sb.ToString().TrimEnd();
         }
+
+        public static int[] SortArray(int[] array)
+        {
+            if (!array.Any()) return array;
+
+            var list = array.ToList();
+            //var even = list.Where(x => x % 2 == 0);
+            var odd = list.Where(x => x % 2 != 0).OrderBy(x => x).ToArray();
+            var queue = new Queue(odd);
+            var ordered = new int[array.Length];
+
+            for (var i = 0; i < array.Length; i++)
+            {
+                if (array[i] % 2 != 0)
+                {
+                    ordered[i] = (int) queue.Dequeue();
+                }
+                else
+                {
+                    ordered[i] = array[i];
+                }
+            }
+
+            return ordered;
+        }
     }
 }
-
-
