@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -12,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(SortArray(new[] { 5, 3, 2, 8, 1, 4 }));
+            Console.WriteLine(SortArray(new[] { 5, 3, 2, 8, 1, 0 }).ToString());
             Console.ReadKey();
         }
 
@@ -230,7 +229,6 @@ namespace ScratchPad
             if (!array.Any()) return array;
 
             var list = array.ToList();
-            //var even = list.Where(x => x % 2 == 0);
             var odd = list.Where(x => x % 2 != 0).OrderBy(x => x).ToArray();
             var queue = new Queue(odd);
             var ordered = new int[array.Length];
