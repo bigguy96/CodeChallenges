@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Anagrams("racer", new List<string> { "carer", "arcre", "carre", "racrs", "racers", "arceer", "raccer", "carrer", "cerarr" }));
+            Console.WriteLine(DeleteNth(new int[] { 1, 1, 3, 3, 7, 2, 2, 2, 2 }, 3));
             Console.ReadKey();
         }
 
@@ -237,7 +237,7 @@ namespace ScratchPad
             {
                 if (array[i] % 2 != 0)
                 {
-                    ordered[i] = (int) queue.Dequeue();
+                    ordered[i] = (int)queue.Dequeue();
                 }
                 else
                 {
@@ -266,6 +266,31 @@ namespace ScratchPad
         private static string SortWord(string word)
         {
             return new string(word.ToCharArray().OrderBy(x => x).Select(x => x).ToArray());
+        }
+
+        public static int[] DeleteNth(int[] arr, int x)
+        {
+            var numbers = arr.ToList().GroupBy(g => g)
+                             .TakeWhile(w => w.Count() >= x || w.Count() <= x)
+                           .SelectMany(s => s.ToList().Take(x))
+                           //.ToList()//.SelectMany(t => t)
+                           ;
+            //var v = new List<int>();
+
+
+            //foreach (var item in numbers)
+            //{
+            //    var t = item.ToList().Take(x);
+            //    var y = t.Select(e => e);
+
+            //    foreach (var i in t)
+            //    {
+            //        v.Add(i);
+            //    }
+            //}
+
+            return numbers.ToArray();
+            //return numbers.ToArray();
         }
     }
 }
