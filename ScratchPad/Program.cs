@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(SortArray(new[] { 5, 3, 2, 8, 1, 0 }).ToString());
+            Console.WriteLine(Anagrams("racer", new List<string> { "carer", "arcre", "carre", "racrs", "racers", "arceer", "raccer", "carrer", "cerarr" }));
             Console.ReadKey();
         }
 
@@ -246,6 +246,26 @@ namespace ScratchPad
             }
 
             return ordered;
+        }
+
+        public static List<string> Anagrams(string word, List<string> words)
+        {
+            var sorted = SortWord(word);
+            var anagrams = new List<string>();
+
+            foreach (var item in words)
+            {
+                var s = SortWord(item);
+
+                if (s.Equals(sorted)) anagrams.Add(item);
+            }
+
+            return anagrams;
+        }
+
+        private static string SortWord(string word)
+        {
+            return new string(word.ToCharArray().OrderBy(x => x).Select(x => x).ToArray());
         }
     }
 }
