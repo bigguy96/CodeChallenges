@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Data;
 
 namespace ScratchPad
 {
@@ -11,7 +12,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(DeleteNth(new int[] { 1, 1, 3, 3, 7, 2, 2, 2, 2 }, 3));
+            Console.WriteLine(DeleteNth(new int[] { 2, 3, 2, 1, 1, 3, 3, 2, 3, 1 }, 2));
             Console.ReadKey();
         }
 
@@ -270,27 +271,45 @@ namespace ScratchPad
 
         public static int[] DeleteNth(int[] arr, int x)
         {
-            var numbers = arr.ToList().GroupBy(g => g)
-                             .TakeWhile(w => w.Count() >= x || w.Count() <= x)
-                           .SelectMany(s => s.ToList().Take(x))
-                           //.ToList()//.SelectMany(t => t)
-                           ;
-            //var v = new List<int>();
+            //var numbers = arr.ToList()
+            //    .GroupBy(g => g)
+            //    .TakeWhile(w => w.Count() >= x || w.Count() <= x)
+            //    .SelectMany(s => s.ToList().Take(x));
 
+            //(int twentyFives, int fifties) register = (0, 0);
 
-            //foreach (var item in numbers)
-            //{
-            //    var t = item.ToList().Take(x);
-            //    var y = t.Select(e => e);
+            //var numbers = new List<int>();
 
-            //    foreach (var i in t)
-            //    {
-            //        v.Add(i);
-            //    }
-            //}
+            return GetNumbers(arr, x).ToArray();
+            
 
-            return numbers.ToArray();
             //return numbers.ToArray();
+
+//            ([2, 3, 2, 1, 1, 3, 3, 2, 3, 1], 2)
+//- Expected: 2,3,2,1,1,3 Actual: 2,2,3,3,1,1
+
+        }
+
+        private static IEnumerable<int> GetNumbers(int[] arr, int x)
+        {
+            var dic = new Dictionary<int, int>();
+            foreach (var item in arr)
+            {
+                if (!dic.ContainsKey(item))
+                {
+                    dic.Add(item, 1);
+                }
+                else
+                {
+                    dic[item]++;
+                }
+
+                if (dic[item] <= x)
+                {
+                    
+                    yield return item;
+                }
+            }
         }
     }
 }
