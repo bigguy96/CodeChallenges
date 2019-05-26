@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Drawing;
 
 namespace ScratchPad
 {
@@ -12,7 +13,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(DeleteNth(new int[] { 2, 3, 2, 1, 1, 3, 3, 2, 3, 1 }, 2));
+            Console.WriteLine(Rgb(148, -20, 211));
             Console.ReadKey();
         }
 
@@ -271,23 +272,7 @@ namespace ScratchPad
 
         public static int[] DeleteNth(int[] arr, int x)
         {
-            //var numbers = arr.ToList()
-            //    .GroupBy(g => g)
-            //    .TakeWhile(w => w.Count() >= x || w.Count() <= x)
-            //    .SelectMany(s => s.ToList().Take(x));
-
-            //(int twentyFives, int fifties) register = (0, 0);
-
-            //var numbers = new List<int>();
-
             return GetNumbers(arr, x).ToArray();
-            
-
-            //return numbers.ToArray();
-
-//            ([2, 3, 2, 1, 1, 3, 3, 2, 3, 1], 2)
-//- Expected: 2,3,2,1,1,3 Actual: 2,2,3,3,1,1
-
         }
 
         private static IEnumerable<int> GetNumbers(int[] arr, int x)
@@ -310,6 +295,21 @@ namespace ScratchPad
                     yield return item;
                 }
             }
+        }
+
+        public static string Rgb(int r, int g, int b)
+        {
+            r = r < 0 ? 0 : r;
+            g = g < 0 ? 0 : g;
+            b = b < 0 ? 0 : b;
+
+            r = r > 255 ? 255 : r;
+            g = g > 255 ? 255 : g;
+            b = b > 255 ? 255 : b;
+
+            Color c = Color.FromArgb(r,g,b);
+
+            return $"{c.R:X2}{c.G:X2}{c.B:X2}";
         }
     }
 }
