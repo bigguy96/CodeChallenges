@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Data;
 using System.Drawing;
 
 namespace ScratchPad
@@ -13,7 +12,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Rgb(148, -20, 211));
+            Console.WriteLine(FirstNonRepeatingLetter2(""));
             Console.ReadKey();
         }
 
@@ -291,7 +290,7 @@ namespace ScratchPad
 
                 if (dic[item] <= x)
                 {
-                    
+
                     yield return item;
                 }
             }
@@ -307,9 +306,32 @@ namespace ScratchPad
             g = g > 255 ? 255 : g;
             b = b > 255 ? 255 : b;
 
-            Color c = Color.FromArgb(r,g,b);
+            Color c = Color.FromArgb(r, g, b);
 
             return $"{c.R:X2}{c.G:X2}{c.B:X2}";
+        }
+
+        public static string FirstNonRepeatingLetter(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str)) return "";
+            if (str.Length == 1) return str;
+            if (str.ToLower().ToCharArray().Distinct().Count() == 1) return "";
+
+            var count = str.ToLower().ToCharArray().GroupBy(g => g).Select(s => new { character = s.Key, count = s.Count() }).FirstOrDefault(f => f.count == 1);
+
+            if (count == null) return "";
+
+            var letter = str.ToCharArray().FirstOrDefault(f => char.ToLowerInvariant(f) == char.ToLowerInvariant(count.character));
+
+            return letter.ToString();
+        }
+
+        public static string FirstNonRepeatingLetter2(string str)
+        {
+            var letter = str.ToCharArray().GroupBy(g => char.ToLower(g)).Select(s => new { character = s.Key, count = s.Count() }).FirstOrDefault(f => f.count == 1);
+            var ret = (letter !=null) ? str.Substring(str.IndexOf(letter.character, StringComparison.OrdinalIgnoreCase), 1) : "";
+
+            return ret;           
         }
     }
 }
