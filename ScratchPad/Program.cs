@@ -259,5 +259,16 @@ namespace ScratchPad
 
             return s.ToCharArray().SequenceEqual(merged);
         }
+
+        public static long NextBiggerNumber(long n)
+        {
+            var number = n.ToString();
+
+            if (number.Length == 1) return -1;
+
+            //https://www.codewars.com/kata/next-bigger-number-with-the-same-digits/train/csharp
+
+            return 0;
+        }
     }
 }
