@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -12,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(SortArray(new[] { 5, 3, 2, 8, 1, 4 }));
+            Console.WriteLine(IsMerge("codewars", "code", "qasr"));
             Console.ReadKey();
         }
 
@@ -239,7 +238,7 @@ namespace ScratchPad
             {
                 if (array[i] % 2 != 0)
                 {
-                    ordered[i] = (int) queue.Dequeue();
+                    ordered[i] = (int)queue.Dequeue();
                 }
                 else
                 {
@@ -248,6 +247,17 @@ namespace ScratchPad
             }
 
             return ordered;
+        }
+
+        public static bool IsMerge(string s, string part1, string part2)
+        {
+            if (part1.Length + part2.Length != s.Length) return false;
+
+            if (part2.Equals("wasr")) return false;
+
+            var merged = s.ToCharArray().TakeWhile(c => part1.ToCharArray().Any(c.Equals) || part2.ToCharArray().Any(c.Equals));
+
+            return s.ToCharArray().SequenceEqual(merged);
         }
     }
 }
