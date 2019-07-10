@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(IsMerge("codewars", "code", "qasr"));
+            Console.WriteLine(Maskify("Skippy"));
             Console.ReadKey();
         }
 
@@ -269,6 +269,16 @@ namespace ScratchPad
             //https://www.codewars.com/kata/next-bigger-number-with-the-same-digits/train/csharp
 
             return 0;
+        }
+
+        public static string Maskify(string cc)
+        {
+            if (cc.Length < 4) { return cc; }
+
+            var lastDigits = cc.Substring(cc.Length - 4, 4);
+            var masked = lastDigits.PadLeft(cc.Length , '#');
+
+            return masked;
         }
     }
 }
