@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Maskify("Skippy"));
+            Console.WriteLine(CountBits(1234));
             Console.ReadKey();
         }
 
@@ -276,9 +276,23 @@ namespace ScratchPad
             if (cc.Length < 4) { return cc; }
 
             var lastDigits = cc.Substring(cc.Length - 4, 4);
-            var masked = lastDigits.PadLeft(cc.Length , '#');
+            var masked = lastDigits.PadLeft(cc.Length, '#');
 
             return masked;
+        }
+
+        public static int CountBits(int n)
+        {
+            if (n == 0) return n;
+
+            return Convert.ToString(n, 2)
+                .ToCharArray()
+                .Count(x => x.Equals('1'));
+        }
+
+        public static string SpinWords(string sentence)
+        {
+            return string.Join(' ', sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Length < 5 ? x : new string(x.Reverse().ToArray())));
         }
     }
 }
