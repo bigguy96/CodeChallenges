@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(CountBits(1234));
+            Console.WriteLine(wave(" hello "));
             Console.ReadKey();
         }
 
@@ -293,6 +293,35 @@ namespace ScratchPad
         public static string SpinWords(string sentence)
         {
             return string.Join(' ', sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Length < 5 ? x : new string(x.Reverse().ToArray())));
+        }
+
+        public static List<string> wave(string str)
+        {
+            //if (string.IsNullOrWhiteSpace(str)) return Enumerable.Empty<string>().ToList();
+
+            //var words = new List<string>(Enumerable.Repeat(str, str.Length).ToList());
+            //var waved = new List<string>();
+            //var index = 0;
+
+            //foreach (var item in words)
+            //{
+            //    var sb = new StringBuilder(item);
+            //    if (char.IsLetter(item[index]))
+            //    {
+            //        sb[index] = char.ToUpper(item[index]);
+            //        waved.Add(sb.ToString());
+            //    }
+
+            //    index++;
+            //}
+
+            //return waved;
+
+            if (string.IsNullOrWhiteSpace(str)) return Enumerable.Empty<string>().ToList();
+
+            return Enumerable.Repeat(str, str.Length)
+                .Select((x, i) => new string(char.IsLetter(x[i]) ? x.Substring(0, i) + char.ToUpper(x[i]) + x.Substring(i + 1) : "?"))
+                .Where(x => !x.Equals("?")).ToList();
         }
     }
 }
