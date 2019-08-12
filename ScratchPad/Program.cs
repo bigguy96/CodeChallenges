@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(wave(" hello "));
+            Console.WriteLine(find_it(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5, 1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5, 20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5, 10 }));
             Console.ReadKey();
         }
 
@@ -323,5 +323,60 @@ namespace ScratchPad
                 .Select((x, i) => new string(char.IsLetter(x[i]) ? x.Substring(0, i) + char.ToUpper(x[i]) + x.Substring(i + 1) : "?"))
                 .Where(x => !x.Equals("?")).ToList();
         }
+
+        public static string GroupByCommas(int n)
+        {
+            return n.ToString("N0");
+        }
+
+        public static string NumberToEnglish(int n)
+        {
+            if (n < 0)
+                return "";
+            else if (n == 0)
+                return "zero";
+            else if (n <= 19)
+                return new string[] {"one", "two", "three", "four", "five", "six", "seven", "eight",
+                                "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+                                "seventeen", "eighteen", "nineteen"}[n - 1] + " ";
+            else if (n <= 99)
+                return new string[] {"twenty", "thirty", "forty", "fifty", "sixty", "seventy",
+                                "eighty", "ninety"}[n / 10 - 2] + " " + NumberToEnglish(n % 10);
+            else if (n <= 199)
+                return "one hundred " + NumberToEnglish(n % 100);
+            else if (n <= 999)
+                return NumberToEnglish(n / 100) + " hundred " + NumberToEnglish(n % 100);
+            else if (n <= 1999)
+                return "one thousand " + NumberToEnglish(n % 1000);
+            else
+                return NumberToEnglish(n / 1000) + " thousand " + NumberToEnglish(n % 1000);
+
+            //https://stackoverflow.com/questions/794663/net-convert-number-to-string-representation-1-to-one-2-to-two-etc
+            //https://www.codewars.com/kata/ninety-nine-thousand-nine-hundred-ninety-nine/train/csharp
+        }
+
+        public static int find_it(int[] seq)
+        {
+            //var num1 = seq.GroupBy(x => x).Select(x => new { number = x.Key, count = x.Count() }).First(x => x.count % 2 == 1).number;
+            var num = seq.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count()).First(x => x.Value % 2 == 1).Key;
+            //return seq.GroupBy(x => x).Single(g => g.Count() % 2 == 1).Key;
+            //https://www.codewars.com/kata/find-the-odd-int/train/csharp
+
+            return num;
+        }
+
+        //https://www.codewars.com/kata/rock-paper-scissor-lizard-spock-game/train/csharp
+
+        //    Scissors cuts Paper
+        //    Paper covers Rock
+        //Rock crushes Lizard
+        //Lizard poisons Spock
+        //Spock smashes Scissors
+        //Scissors decapitates Lizard
+        //Lizard eats Paper
+        //Paper disproves Spock
+        //Spock vaporizes Rock
+        //Rock blunts Scissors
+
     }
 }
