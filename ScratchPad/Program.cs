@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(find_it(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5, 1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5, 20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5, 10 }));
+            Console.WriteLine(Meeting("Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill"));
             Console.ReadKey();
         }
 
@@ -364,6 +364,54 @@ namespace ScratchPad
 
             return num;
         }
+
+        public static string Meeting(string s)
+        {
+            //s = "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill";
+            //"(CORWILL, ALFRED)(CORWILL, FRED)(CORWILL, RAPHAEL)(CORWILL, WILFRED)(TORNBULL, BARNEY)(TORNBULL, BETTY)(TORNBULL, BJON)"
+            var names = s.ToUpper().Split(';', StringSplitOptions.RemoveEmptyEntries)
+                .Select(name => name.Split(':', StringSplitOptions.RemoveEmptyEntries))
+                .Select(n => (n[1], n[0]))
+                .OrderBy(x => x.Item1).ThenBy(x => x.Item2)
+                .Select(x => $"({x.Item1}, {x.Item2})").ToArray();
+
+            return string.Join("", names);
+            //https://www.codewars.com/kata/meeting/train/csharp
+        }
+
+        public static string Likes(string[] name)
+        {
+            var count = name.Length;
+            switch (count)
+            {
+                case 0:
+                {
+                    return "no one likes this";
+                }
+
+                case 1:
+                {
+                    return $"{name[0]} likes this";
+                }
+
+                case 2:
+                {
+                    return $"{name[0]} and {name[1]} like this";
+                }
+
+                case 3:
+                {
+                    return $"{name[0]}, {name[1]} and {name[2]} like this";
+                }
+
+                default:
+                {
+                    return $"{name[0]}, {name[1]} and {count -2} others like this";
+                }
+            }
+        }
+
+        //https://www.codewars.com/kata/583203e6eb35d7980400002a
 
         //https://www.codewars.com/kata/rock-paper-scissor-lizard-spock-game/train/csharp
 

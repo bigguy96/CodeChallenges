@@ -702,23 +702,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gaeta\\.nuget\\packages\\": {},
+    "C:\\Users\\tauvetg\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gaeta\\source\\repos\\CodeChallenges\\CodeChallengeds\\CodeChallenges.csproj",
+      "projectUniqueName": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\CodeChallengeds\\CodeChallenges.csproj",
       "projectName": "CodeChallenges",
-      "projectPath": "C:\\Users\\gaeta\\source\\repos\\CodeChallenges\\CodeChallengeds\\CodeChallenges.csproj",
-      "packagesPath": "C:\\Users\\gaeta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gaeta\\source\\repos\\CodeChallenges\\CodeChallengeds\\obj\\",
+      "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\CodeChallengeds\\CodeChallenges.csproj",
+      "packagesPath": "C:\\Users\\tauvetg\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\CodeChallengeds\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\gaeta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tauvetg\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -726,13 +726,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "http://nuget.tc.gc.ca/nuget": {},
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\gaeta\\source\\repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj": {
-              "projectPath": "C:\\Users\\gaeta\\source\\repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj"
+            "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj"
             }
           }
         }
