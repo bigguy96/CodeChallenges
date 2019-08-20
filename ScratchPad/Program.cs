@@ -11,7 +11,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Meeting("Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill"));
+            Console.WriteLine(CountSmileys(new[] { "8~P", ":", "D", ";", "D", "-P", "P" }));
             Console.ReadKey();
         }
 
@@ -385,31 +385,62 @@ namespace ScratchPad
             switch (count)
             {
                 case 0:
-                {
-                    return "no one likes this";
-                }
+                    {
+                        return "no one likes this";
+                    }
 
                 case 1:
-                {
-                    return $"{name[0]} likes this";
-                }
+                    {
+                        return $"{name[0]} likes this";
+                    }
 
                 case 2:
-                {
-                    return $"{name[0]} and {name[1]} like this";
-                }
+                    {
+                        return $"{name[0]} and {name[1]} like this";
+                    }
 
                 case 3:
-                {
-                    return $"{name[0]}, {name[1]} and {name[2]} like this";
-                }
+                    {
+                        return $"{name[0]}, {name[1]} and {name[2]} like this";
+                    }
 
                 default:
-                {
-                    return $"{name[0]}, {name[1]} and {count -2} others like this";
-                }
+                    {
+                        return $"{name[0]}, {name[1]} and {count - 2} others like this";
+                    }
             }
         }
+
+        public static int CountSmileys(string[] smileys)
+        {
+            return smileys.SelectMany(x => Regex.Matches(x, @"(:\)|:D|:-\)|:-D|;-D|;\)|:~\)|;~D|;D|;-D)", RegexOptions.None)).Count();
+
+
+            //total: 0:  8 - (8~(8)  8(8~D  :~(  ; D D
+            //total: 0:  8(  ; (
+            //    total: 1:  ; ~D  ~D  :-(8 D
+            //total: 2:  8-(  :P  :-) 8 D; (8 -( :-) 8-) 
+            //total: 0:  -)  P: -(8 D: ~(
+            //    total: 0:  :P  8~D   D
+            //total: 1:  -D  8 - P  8)  -)  :)  ; ) 
+            //total: 0:  : D P
+
+            //https://www.codewars.com/kata/count-the-smiley-faces/train/csharp
+
+            //total: 0:   "(",  "8", "D",  "~("
+            //total: 2:  "(",  ":", "(",  "~P",  ";)",  ":-)",  "P",  ";", "("
+            //total: 2:  ":-D",  "-D",  "8-D",  "8(",  ";-P",  ";~D"
+            //total: 0:  : P: )  8~(8)
+            //total: 1:  ";-D",  ":P"
+            //total: 1:  ":P",  "~)",  "8-)",  ";D",  "8-D"
+            //total: 1:  "8", "(",  "8~P",  "~D",  ":(",   "D",  ";", "P",   "P",  ";-D",  "8", "D"
+            //total: 1:  "8", "D",  ";)",  ")",  ";-(",  "~D",  "~)",  ";~("
+            //total: 0:  "8)",  "8-D",  "8-)",   ")",  "8P",  "8(",  "8", "P"
+            //total: 0:  "8~P",  ":", "D",  ";", "D",  "-P",   "P"
+        }
+
+
+        //(:\)|:D|;-D|:~\))
 
         //https://www.codewars.com/kata/583203e6eb35d7980400002a
 
