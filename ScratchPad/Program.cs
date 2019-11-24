@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Data;
 using System.Drawing;
 
 namespace ScratchPad
@@ -13,7 +12,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Rgb(148, -20, 211));
+            Console.WriteLine(balanceStatements("GOOG 300 542.0 B, AAPL 50 145.0 B, CSCO 250.0 29 B, GOOG 200 580.0 S"));
             Console.ReadKey();
         }
 
@@ -291,7 +290,7 @@ namespace ScratchPad
 
                 if (dic[item] <= x)
                 {
-                    
+
                     yield return item;
                 }
             }
@@ -307,9 +306,69 @@ namespace ScratchPad
             g = g > 255 ? 255 : g;
             b = b > 255 ? 255 : b;
 
-            Color c = Color.FromArgb(r,g,b);
+            Color c = Color.FromArgb(r, g, b);
 
             return $"{c.R:X2}{c.G:X2}{c.B:X2}";
+        }
+
+        public static string bonus_time(int salary, bool bonus)
+        {
+            return bonus ? $"${salary}0" : $"${salary}";
+        }
+
+        public static string balanceStatements(string lst)
+        {
+            //https://www.codewars.com/kata/ease-the-stockbroker/train/csharp
+            //String l = "GOOG 300 542.0 B, AAPL 50 145.0 B, CSCO 250.0 29 B, GOOG 200 580.0 S";
+            //String r = "Buy: 169850 Sell: 116000; Badly formed 1: CSCO 250.0 29 B ;";
+            var split = lst.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            decimal buy = 0;
+            decimal sell = 0;
+            var bad = new List<string>();
+
+            foreach (var s in split)
+            {
+                var s1 = s.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+                var isNumber = int.TryParse(s1[1], out _);
+                var isDecimal = decimal.TryParse(s1[2], out _);
+                var action = s1[3];
+                var isGood = isNumber && isDecimal;
+
+                if (isGood)
+                {
+                    var amount = decimal.Parse(s1[1]);
+                    var price = decimal.Parse(s1[2]);
+
+                    if (action.Equals("B", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                       
+                        buy +=  amount * price;
+                    }
+                    else
+                    {
+                        sell += amount * price;
+                    }
+                }
+                else
+                {
+                    bad.Add(s);
+                }
+            }
+
+            var result = $"Buy: {Math.Round(buy)} Sell: {Math.Round(sell)}";
+
+            if (bad.Any())
+            {
+                result += $"; Badly formed {bad.Count}:{string.Join(";", bad)} ;";
+            }
+
+            return result;
+        }
+
+        //https://www.codewars.com/kata/559ecfd712d412121000001d
+        public static string GenerateGroupings(int[] input)
+        {
+            // put code here :)
         }
     }
 }
