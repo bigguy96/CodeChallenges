@@ -12,7 +12,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(balanceStatements("GOOG 300 542.0 B, AAPL 50 145.0 B, CSCO 250.0 29 B, GOOG 200 580.0 S"));
+            Console.WriteLine(Meeting("Fred: Corwill; Wilfred: Corwill; Barney: Tornbull; Betty: Tornbull; Bjon: Tornbull; Raphael: Corwill; Alfred: Corwill"));
             Console.ReadKey();
         }
 
@@ -328,7 +328,7 @@ namespace ScratchPad
 
             foreach (var s in split)
             {
-                var s1 = s.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+                var s1 = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 var isNumber = int.TryParse(s1[1], out _);
                 var isDecimal = decimal.TryParse(s1[2], out _);
                 var action = s1[3];
@@ -341,8 +341,8 @@ namespace ScratchPad
 
                     if (action.Equals("B", StringComparison.CurrentCultureIgnoreCase))
                     {
-                       
-                        buy +=  amount * price;
+
+                        buy += amount * price;
                     }
                     else
                     {
@@ -365,10 +365,47 @@ namespace ScratchPad
             return result;
         }
 
-        //https://www.codewars.com/kata/559ecfd712d412121000001d
-        public static string GenerateGroupings(int[] input)
+        public static bool ValidParentheses(string input)
         {
-            // put code here :)
+            if (input.Length <= 1) return false;
+            if (input.StartsWith(")") || input.EndsWith("(")) return false;
+
+            var count = 0;
+            foreach (var c in input)
+            {
+                if (count == -1)
+                    return false;
+
+                if (c == '(')
+                    count++;
+
+                if (c == ')')
+                    count--;
+            }
+
+            return count == 0;
+        }
+
+        public static string Meeting(string s)
+        {
+            //var m = Regex.Match(s, @"([\(\)])");
+            //var t = Regex.Split(s, @"\(([^)]*)\)", RegexOptions.Multiline).Where(x => !x.Equals(string.Empty));
+
+            //"Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill"
+            //(CORWILL, ALFRED)(CORWILL, FRED)(CORWILL, RAPHAEL)(CORWILL, WILFRED)(TORNBULL, BARNEY)(TORNBULL, BETTY)(TORNBULL, BJON)
+
+            var list = s
+                .ToUpper()
+                .Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(x => x.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries))
+                .Select(x => new { LastName = x[1].Trim(), FirstName = x[0].Trim() })
+                .OrderBy(x => x.LastName)
+                .ThenBy(x => x.FirstName)
+                .Select(s1 => $"({s1.LastName}, {s1.FirstName})");
+
+
+            return string.Join("", list);
+
         }
     }
 }
