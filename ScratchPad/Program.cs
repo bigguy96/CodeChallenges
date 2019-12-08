@@ -12,7 +12,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Meeting("Fred: Corwill; Wilfred: Corwill; Barney: Tornbull; Betty: Tornbull; Bjon: Tornbull; Raphael: Corwill; Alfred: Corwill"));
+            Console.WriteLine(AddLetters(new char[] { 'y', 'c', 'b' }));
             Console.ReadKey();
         }
 
@@ -406,6 +406,33 @@ namespace ScratchPad
 
             return string.Join("", list);
 
+        }
+
+        public static long DivisibleCount(long x, long y, long k)
+        {
+            long lower = x / k; //2, 3, 2, 2
+            long upper = y / k; //5, 5, 5, 4
+
+            return upper - lower + (x % k == 0 ? 1 : 0);
+        }
+
+        public static char AddLetters(char[] letters)
+        {
+            if (!letters.Any()) return 'z';
+            if (letters.Length == 1) return letters[0];
+            
+            var alphabet = Enumerable.Range(97, 26).Select((x, y) => new { letter = (char)x, number = y + 1 }).ToList();
+            var count = 0;
+
+            foreach (var item in letters)
+            {
+                count += alphabet.Single(x => Equals(x.letter, item)).number;
+
+                if (count > 26)  count -= 26;
+            }
+
+            //-96
+            return alphabet[count - 1].letter;            
         }
     }
 }
