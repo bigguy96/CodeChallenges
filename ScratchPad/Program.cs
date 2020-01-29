@@ -12,7 +12,7 @@ namespace ScratchPad
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Meeting("Fred: Corwill; Wilfred: Corwill; Barney: Tornbull; Betty: Tornbull; Bjon: Tornbull; Raphael: Corwill; Alfred: Corwill"));
+            Console.WriteLine(PigIt("Hello world !"));
             Console.ReadKey();
         }
 
@@ -406,6 +406,105 @@ namespace ScratchPad
 
             return string.Join("", list);
 
+        }
+
+        //https://www.codewars.com/kata/585cf93f6ad5e0d9bf000010
+        public static string BowlingPins(int[] arr)
+        {
+            //var a = new char[4, 4] {
+            //    {'I', 'I', 'I', 'I'} ,
+            //    {' ', 'I', 'I', 'I'} ,
+            //    {' ', 'I', 'I', ' '},
+            //    {' ',' ','I',' ' }
+            //};
+
+            var sb = new StringBuilder("");
+            sb.AppendLine("7I 8I 9I 10I");
+            sb.AppendLine(" 4I 5I 6I");
+            sb.AppendLine(" 2I 3I ");
+            sb.AppendLine("  1I ");
+
+            var pins = sb.ToString();
+
+            foreach (var i in arr)
+            {
+                //var index = pins.IndexOf($"{i}I", StringComparison.Ordinal);
+                //pins.Remove(index);
+                pins = pins.Replace($"{i}I", " ");
+
+
+            }
+
+
+            return pins;
+
+            //return arr.Aggregate(pins, (current, i) => current.Replace($"{i}I", ""));
+        }
+
+        public static string PigIt(string str)
+        {
+            //Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+            //Kata.PigIt("Pig latin is cool"); // igPay atinlay siay oolcay
+            //Kata.PigIt("Hello world !");     // elloHay orldway !
+
+            var words = str.Split(new[] { ' ' });
+            var sb = new StringBuilder("");
+
+            foreach (var word in words)
+            {
+                if (word.Length <= 1)
+                {
+                    sb.Append(word);
+                    continue;
+                }
+
+                var first = word[0];
+                var last = word.Substring(1, word.Length - 1);
+
+                sb.Append($"{last}{first}ay ");
+            }
+
+            return sb.ToString().TrimEnd();
+
+            //return string.Join(" ", str.Split(' ').Select(w => w.Substring(1) + w[0] + "ay"));
+        }
+
+        public static string Rot13(string value)
+        {
+            var array = value.ToCharArray();
+            for (var i = 0; i < array.Length; i++)
+            {
+                var number = (int)array[i];
+
+                if (number >= 'a' && number <= 'z')
+                {
+                    if (number > 'm')
+                    {
+                        number -= 13;
+                    }
+                    else
+                    {
+                        number += 13;
+                    }
+                }
+                else if (number >= 'A' && number <= 'Z')
+                {
+                    if (number > 'M')
+                    {
+                        number -= 13;
+                    }
+                    else
+                    {
+                        number += 13;
+                    }
+                }
+                array[i] = (char)number;
+            }
+            return new string(array);
+
+            //var s1 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+            //var s2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            //return string.Join("", input.Select(x => char.IsLetter(x) ? s1[s2.IndexOf(x)] : x));
         }
     }
 }
