@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj": {}
+    "C:\\Users\\gaeta\\Source\\Repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj": {
+    "C:\\Users\\gaeta\\Source\\Repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\gaeta\\Source\\Repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj",
         "projectName": "ClassLibrary",
-        "projectPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj",
-        "packagesPath": "C:\\Users\\tauvetg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tauvetg\\Source\\repos\\CodeChallenges\\ClassLibrary\\obj\\",
+        "projectPath": "C:\\Users\\gaeta\\Source\\Repos\\CodeChallenges\\ClassLibrary\\ClassLibrary.csproj",
+        "packagesPath": "C:\\Users\\gaeta\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gaeta\\Source\\Repos\\CodeChallenges\\ClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tauvetg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gaeta\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,8 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nuget.tc.gc.ca/nuget": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.2": {
@@ -50,16 +49,11 @@
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
